@@ -1,0 +1,34 @@
+<!--<mat-list>
+  <mat-list-item *ngFor="let message of conversation">
+    <mat-icon>{{ message.avatar }}</mat-icon>
+    <h3 matLine> {{message.from}} </h3>
+    <p matLine>
+      <span> {{message.content}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>-->
+<div class="mesgs">
+  <div class="msg_history">   
+  <!--<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>-->
+  <div *ngFor="let message of conversation">
+    <div [ngClass]="{'received_msg':message.from !== 'Me','outgoing_msg':message.from !== 'Bot'}">
+      <div [ngClass]="{'received_withd_msg':message.from !== 'Me', 'sent_msg':message.from !== 'Bot'}">
+        <p>{{message.content}}</p>
+        <span class="time_date"> 11:01 AM    |    June 9</span>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<md-divider></md-divider>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput 
+           #message 
+           maxlength="256" 
+           placeholder=" Type a message" 
+           (keyup.enter)="addMessageFromUser(message)">
+    <mat-icon matSuffix (click)="addMessageFromUser(message)">send</mat-icon>
+  </mat-form-field>
+</form>
