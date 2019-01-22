@@ -17,7 +17,9 @@
         <span class="time_date"> 11:01 AM    |    June 9</span>
       </div>
     </div>
+    <img src="{{ message.imgRelevant }}" class="thumbnail" *ngIf="message.from == 'Bot' && message.imageStatus == 'true'">
   </div>
+  <br>
   </div>
 </div>
 
